@@ -5,19 +5,26 @@
     <i class="bx bx-menu" id="header-toggle"></i>
   </div>
 
-  <div class="header__img">
-    <img
-      src="{% static 'data/icon.png' %}"
-      alt="icon"
-    />
+  <div class="header__profile">
+    {% if user.is_authenticated %}
+    <a href="{% url 'MCIW:profile' %} " class="header_profile_name">{{user.username}}</a>
+    <div class="header_profile_img">
+      <img
+        src="{{ user.profile.image.url }}"
+        alt="profile"
+      />
+    </div>
+    {% else %}
+    <a href="{% url 'MCIW:login' %}" class="header_profile_name">Connexion</a>
+    {% endif %}
   </div>
 </header>
 
 <div class="l-navbar" id="nav-bar">
   <nav class="nav">
     <div>
-      {% url 'monitor:home' as server  %}
-      <a href="{{server}}" class="nav__logo {% if server %} active {% endif %} ">
+      
+      <a href="{% url 'MCIW:home'  %}" class="nav__logo {% if server %} active {% endif %} ">
         <img
       src="{% static 'data/icon.png' %}"
       alt="icon"

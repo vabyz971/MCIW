@@ -1,0 +1,22 @@
+{% extends "base_site.html" %} 
+
+{% block content %}
+
+<div class="card profile">
+    <h1>{{user.username}} </h1>
+    <img src="{{user.profile.image.url}} " alt="" width="120px">
+</div>
+
+<div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="">
+            <label>{{form.username.label}}</label>
+            {{form.username}}
+        </div>
+
+        <input class="btn btn-primary" type="submit" name="Update" />
+    </form>
+</div>
+
+{% endblock content %}
