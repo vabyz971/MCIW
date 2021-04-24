@@ -1,0 +1,39 @@
+{% extends "base_site.html" %} 
+
+{% block navbar %} {% endblock %}
+{% block content %}
+
+
+<div class="center">
+    <h1 class="title_form">Inscription</h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <div class="field_text">
+            <label>{{form.username.label}}</label>
+            {{form.username}}
+        </div>
+
+        <div class="field_text">
+            <label>{{form.password1.label}}</label>
+            {{form.password1}}
+        </div>
+
+        <div class="field_text">
+            <label>{{form.password2.label}}</label>
+            {{form.password2}}
+        </div>
+
+        <div class="field_pass">
+            <a href="{% url 'MCIW:login' %} ">Connexion</a>
+        </div>
+        <input class="btn btn-primary" type="submit" name="Incription">
+        
+    </form>
+    {{form.errors}}
+</div>
+
+
+
+{% endblock content %}

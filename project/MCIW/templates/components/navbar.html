@@ -1,0 +1,68 @@
+{% load static %}
+
+<header class="header" id="header">
+  <div class="header__toggle">
+    <i class="bx bx-menu" id="header-toggle"></i>
+  </div>
+
+  <div class="header__img">
+    <img
+      src="{% static 'data/icon.png' %}"
+      alt="icon"
+    />
+  </div>
+</header>
+
+<div class="l-navbar" id="nav-bar">
+  <nav class="nav">
+    <div>
+      {% url 'monitor:home' as server  %}
+      <a href="{{server}}" class="nav__logo {% if server %} active {% endif %} ">
+        <img
+      src="{% static 'data/icon.png' %}"
+      alt="icon"
+      height="20px"
+      width="20px"
+    />
+        <span class="nav__logo-name">Serveur</span>
+      </a>
+      <div class="nav__list">
+        <a href="" class="nav__link">
+          <i class="bx bx-grid-alt nav__icon"></i>
+          <span class="nav__name">Dashboard</span>
+        </a>
+        <a href="" class="nav__link">
+          <i class="bx bx-library nav__icon"></i>
+          <span class="nav__name">Plugins</span>
+        </a>
+        <a href="" class="nav__link">
+          <i class="bx bx-map nav__icon"></i>
+          <span class="nav__name">Carte</span>
+        </a>
+        <a href="" class="nav__link">
+          <i class="bx bx-folder nav__icon"></i>
+          <span class="nav__name">Dossier</span>
+        </a>
+        <a href="" class="nav__link">
+          <i class="bx bx-bar-chart-alt-2 nav__icon"></i>
+          <span class="nav__name">Option</span>
+        </a>
+      </div>
+    </div>
+    {% if user.is_authenticated %}
+    
+    <a href="{% url 'MCIW:logout' %}" class="nav__link">
+      <i class="bx bx-log-out nav__icon"></i>
+      <span class="nav__name">Déconnexion</span>
+    </a>
+
+    {% else %}
+    
+    <a href="{% url 'MCIW:login' %}" class="nav__link">
+      <i class="bx bx-log-in nav__icon"></i>
+      <span class="nav__name">Connexion</span>
+    </a>
+
+    {% endif %}
+  </nav>
+</div>

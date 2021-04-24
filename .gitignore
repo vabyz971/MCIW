@@ -1,0 +1,34 @@
+# ignore les fichiers et dossiers
+
+
+
+*.orig
+*.bak
+*.BAK
+*.tmp
+*.TMP
+*.sw*
+*.old
+*.pyc
+*.sqlite
+*.sqlite3
+!demo.sqlite3
+*.DS_Store
+npm-debug.log
+Thumbs.db
+.sass-cache
+__pycache__
+.coverage
+pylint.txt
+package-lock.json
+
+# Specific to django
+logs/
+node_modules/
+local_settings.py
+venv/
+cache/
+project/media/
+project/static/
+project/private_media/
+project/private/
